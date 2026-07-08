@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lurevia | Boutique scolaire</title>
+  <style>
+    :root{
+      --cream:#fbf7f1;--soft:#f2e6d7;--gold:#b9975b;--dark:#111;--white:#fffaf5;--muted:#6f6256;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,sans-serif;background:var(--cream);color:var(--dark)}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;z-index:1000;background:rgba(255,250,245,.96);backdrop-filter:blur(10px);padding:14px 7%;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 2px 18px rgba(0,0,0,.06)}
+    .logo{width:74px;height:74px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:46px;font-weight:bold;letter-spacing:-8px}.logo span{color:var(--gold);margin-left:-10px}
+    nav{display:flex;gap:24px;text-transform:uppercase;font-size:13px;letter-spacing:1px}nav a:hover{color:var(--gold)}
+    .search{padding:13px 18px;border:0;border-radius:25px;background:#f0e7dd;width:235px;outline:none}.icons{display:flex;gap:16px;font-size:24px;cursor:pointer}.icon{position:relative}.count{position:absolute;top:-9px;right:-12px;background:var(--gold);color:white;font-size:11px;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .hero{min-height:560px;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:42px;padding:70px 8%;background:linear-gradient(120deg,#fff7ef,#e8c7a5)}
+    .hero h4{font-family:Georgia,serif;letter-spacing:15px;font-size:30px;margin-bottom:18px}.decor{color:var(--gold);letter-spacing:8px;margin-bottom:20px}.hero h1{font-family:Georgia,serif;font-size:61px;line-height:1.06;font-weight:400;margin-bottom:24px}.hero p{letter-spacing:3px;font-size:13px;color:#3a312b;margin-bottom:32px}.btn{display:inline-block;background:var(--dark);color:white;padding:15px 40px;border-radius:30px;letter-spacing:2px}.btn:hover{background:var(--gold)}
+    .hero-showcase{height:420px;border-radius:34px;background:radial-gradient(circle at 50% 40%,#fff1df,#d6b389);position:relative;overflow:hidden;box-shadow:inset 0 0 80px rgba(255,255,255,.35),0 22px 55px rgba(0,0,0,.12)}
+    .hero-logo{position:absolute;top:34px;right:42px;width:110px;height:110px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:66px;font-weight:bold;letter-spacing:-12px;background:rgba(255,255,255,.45)}.hero-logo span{color:var(--gold);margin-left:-13px}
+    .floating-card{position:absolute;background:white;border-radius:26px;box-shadow:0 18px 45px rgba(0,0,0,.16);overflow:hidden}.floating-card img{width:100%;height:100%;object-fit:cover}.card1{width:220px;height:285px;left:55px;bottom:38px;transform:rotate(-4deg)}.card2{width:190px;height:245px;right:78px;bottom:48px;transform:rotate(5deg)}.tag{position:absolute;left:55px;top:46px;background:#111;color:white;padding:12px 22px;border-radius:30px;font-size:13px;letter-spacing:1px}
+    .title{text-align:center;margin:58px 0 28px}.title h2{font-family:Georgia,serif;letter-spacing:7px;font-size:32px;font-weight:400}.title p{color:var(--gold);margin-top:8px}.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:25px;padding:0 8%;text-align:center}.cat{background:var(--white);border-radius:22px;padding:24px;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.05);transition:.3s}.cat:hover,.cat.active{transform:translateY(-5px);background:#111;color:white}.cat div{font-size:35px;margin-bottom:12px}.cat p{text-transform:uppercase;letter-spacing:2px;font-size:13px}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:20px 8% 70px}.product{background:white;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);position:relative;transition:.35s}.product:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.14)}.product img{width:100%;height:280px;object-fit:cover;background:#efe6da}.fav{position:absolute;right:16px;top:16px;background:white;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.12);z-index:2}.info{padding:20px}.info h3{font-family:Georgia,serif;font-size:21px;font-weight:400;margin-bottom:8px}.meta{font-size:13px;color:var(--muted);margin-bottom:10px}.price{color:var(--gold);font-weight:bold;font-size:20px;margin-bottom:15px}.buttons{display:flex;gap:10px}button{flex:1;padding:13px;border-radius:25px;cursor:pointer;font-weight:600}.cart-btn{background:white;border:1px solid #111}.buy-btn{background:#111;color:white;border:1px solid #111}.cart-btn:hover,.buy-btn:hover{background:var(--gold);border-color:var(--gold);color:white}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;padding:60px 8%;background:#fffdf9;text-align:center}.feature i{font-size:38px}.feature h3{font-family:Georgia,serif;font-weight:400;margin:12px 0}.feature p{color:#666;font-size:14px;line-height:1.6}
+    .newsletter{padding:65px 8%;text-align:center;background:linear-gradient(90deg,#f7ede1,#ead2b3)}.newsletter h2{font-family:Georgia,serif;font-size:38px;font-weight:400;margin-bottom:12px}.newsletter p{color:#66594d}.newsletter input{padding:16px;border:0;border-radius:30px;width:330px;max-width:100%;margin-top:20px}.newsletter button{margin-top:18px;background:#111;color:white;border:0;max-width:180px}
+    footer{background:#111;color:white;padding:60px 8% 28px}.footer-container{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}.footer-logo{font-family:Georgia,serif;font-size:42px;letter-spacing:-8px;margin-bottom:15px}.footer-logo span{color:var(--gold);margin-left:-10px}.footer-about,.footer-column a{color:#bbb;line-height:1.8;font-size:14px}.footer-column h4{font-family:Georgia,serif;font-size:20px;font-weight:400;margin-bottom:15px}.footer-column a{display:block;margin-bottom:8px}.footer-column a:hover{color:var(--gold)}.socials{display:flex;gap:12px;margin-top:18px}.socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}.copyright{text-align:center;color:#888;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;margin-top:35px;font-size:14px}
+    .drawer{position:fixed;right:-390px;top:0;width:360px;max-width:92%;height:100vh;background:white;z-index:3000;padding:28px;box-shadow:-10px 0 35px rgba(0,0,0,.15);transition:.35s;overflow:auto}.drawer.open{right:0}.drawer-close{float:right;font-size:28px;cursor:pointer}.drawer h2{font-family:Georgia,serif;font-weight:400;margin-bottom:25px}.drawer-item{border-bottom:1px solid #eee;padding:16px 0}.empty{color:#666;margin-top:20px}
+    @media(max-width:1050px){nav{display:none}.hero{grid-template-columns:1fr;text-align:center}.hero-showcase{max-width:560px;margin:auto;width:100%}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.footer-container{grid-template-columns:1fr 1fr}}@media(max-width:650px){header{gap:12px;padding:12px;flex-wrap:wrap}.search{order:3;width:100%}.hero{padding:50px 5%}.hero h1{font-size:40px}.hero-showcase{height:360px}.card1{width:185px;height:250px;left:25px}.card2{width:155px;height:215px;right:28px}.hero-logo{width:86px;height:86px;font-size:52px}.categories,.products,.features,.footer-container{grid-template-columns:1fr}.buttons{flex-direction:column}}
+  
+    .drawer-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.mini-btn{border:1px solid #111;background:white;color:#111;border-radius:18px;padding:7px 12px;cursor:pointer;font-size:13px}.mini-btn:hover{background:#b9975b;border-color:#b9975b;color:white}.remove-btn{border-color:#c44;color:#c44}.remove-btn:hover{background:#c44;border-color:#c44;color:white}.cart-total{margin-top:20px;padding-top:18px;border-top:1px solid #eee;font-weight:bold;font-size:18px}.whatsapp-cart{width:100%;margin-top:15px;background:#111;color:white;border:none;border-radius:25px;padding:13px;cursor:pointer}.whatsapp-cart:hover{background:#b9975b}.fav.active{color:red}
+  
+    /* Améliorations panier/favoris avec photos */
+    .drawer{
+      right:-430px;
+      width:420px;
+      max-width:94%;
+      height:100vh;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      scrollbar-width:thin;
+      scrollbar-color:var(--gold) #f3eadf;
+      -webkit-overflow-scrolling:touch;
+      resize:none;
+    }
+    .drawer::-webkit-scrollbar{width:8px}
+    .drawer::-webkit-scrollbar-track{background:#f3eadf}
+    .drawer::-webkit-scrollbar-thumb{background:var(--gold);border-radius:20px}
+    .drawer-item.product-line{
+      display:grid;
+      grid-template-columns:78px 1fr;
+      gap:14px;
+      align-items:center;
+    }
+    .drawer-img{
+      width:78px;
+      height:78px;
+      border-radius:16px;
+      object-fit:cover;
+      background:#f0e7dd;
+      box-shadow:0 6px 16px rgba(0,0,0,.08);
+      cursor:pointer;
+    }
+    .drawer-details strong{display:block;margin-bottom:5px}
+    .drawer-price{color:var(--gold);font-weight:700;margin:4px 0}
+    .clear-btn{
+      width:100%;
+      margin-top:10px;
+      background:white;
+      color:#c44;
+      border:1px solid #c44;
+      border-radius:25px;
+      padding:12px;
+      cursor:pointer;
+    }
+    .clear-btn:hover{background:#c44;color:white}
+    .toast{
+      position:fixed;
+      right:24px;
+      top:105px;
+      background:#111;
+      color:white;
+      padding:13px 18px;
+      border-radius:30px;
+      z-index:5000;
+      opacity:0;
+      transform:translateY(-12px);
+      transition:.25s;
+      pointer-events:none;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+      font-size:14px;
+    }
+    .toast.show{opacity:1;transform:translateY(0)}
+    .preview{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      z-index:6000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .preview.open{display:flex}
+    .preview-card{
+      background:white;
+      border-radius:26px;
+      padding:18px;
+      max-width:520px;
+      width:100%;
+      position:relative;
+      text-align:center;
+    }
+    .preview-card img{width:100%;max-height:520px;object-fit:contain;border-radius:20px;background:#f0e7dd}
+    .preview-close{position:absolute;right:18px;top:12px;font-size:30px;cursor:pointer;background:white;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
+    @media(max-width:650px){.drawer{width:92%}.toast{right:12px;left:12px;text-align:center}.drawer-item.product-line{grid-template-columns:70px 1fr}.drawer-img{width:70px;height:70px}}
+
+  
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-top:40px}
+    .why-card{background:#fff;padding:28px;border-radius:22px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.08);transition:.3s}
+    .why-card:hover{transform:translateY(-8px)}
+    .why-icon{font-size:42px;margin-bottom:18px}
+    .why-card h3{font-family:Georgia,serif;font-weight:400;margin-bottom:10px}
+    .why-card p{color:#666;line-height:1.6;font-size:14px}
+    @media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.why-grid{grid-template-columns:1fr}}
+
+  </style>
+</head>
+<body>
+<header><a href="#accueil" class="logo">L<span>R</span></a><nav><a href="#accueil">Accueil</a><a href="#categories">Catégories</a><a href="#produits">Produits</a><a href="#contact">Contact</a></nav><input class="search" id="searchInput" placeholder="Rechercher un produit..." onkeyup="searchProducts()"><div class="icons"><div class="icon" onclick="openDrawer('favDrawer')">♡<span class="count" id="favCount">0</span></div><div class="icon" onclick="openDrawer('cartDrawer')">🛒<span class="count" id="cartCount">0</span></div></div></header>
+<section class="hero" id="accueil"><div><h4>LUREVIA</h4><div class="decor">✦ ✦ ✦</div><h1>La rentrée<br>avec élégance.</h1><p>CARTABLES • SACS À ROULETTES • ENSEMBLES • ACCESSOIRES</p><a href="#produits" class="btn">DÉCOUVRIR</a></div><div class="hero-showcase"><div class="tag">Nouvelle collection</div><div class="hero-logo">L<span>R</span></div><div class="floating-card card1"><img src="cartable-roulettes-team-player.jpg" alt="Cartable Team Player"></div><div class="floating-card card2"><img src="sac-lovely-rose.jpg" alt="Sac Lovely Rose"></div></div></section>
+<section class="title" id="categories"><h2>CATÉGORIES</h2><p>✦</p></section><section class="categories"><div class="cat active" onclick="filterProducts('all',this)"><div>🛍️</div><p>Tout</p></div><div class="cat" onclick="filterProducts('roulettes',this)"><div>🧳</div><p>Roulettes</p></div><div class="cat" onclick="filterProducts('sac',this)"><div>🎒</div><p>Sacs</p></div><div class="cat" onclick="filterProducts('set',this)"><div>🎁</div><p>Sets</p></div><div class="cat" onclick="filterProducts('nouveaute',this)"><div>✨</div><p>Nouveautés</p></div></section>
+<section class="title" id="produits"><h2>NOS PRODUITS</h2><p>✦</p></section><section class="products" id="productList">
+<div class="product" data-category="roulettes nouveaute" data-name="Cartable roulettes moto vert"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes moto vert')">♡</div><img src="cartable-roulettes-moto-vert.jpg" alt="Cartable roulettes moto vert"><div class="info"><h3>Moto Vert</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes moto vert',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes moto vert')">Acheter</button></div></div></div>
+<div class="product" data-category="roulettes nouveaute" data-name="Cartable roulettes spiderman"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes spiderman')">♡</div><img src="cartable-roulettes-spiderman.jpg" alt="Cartable roulettes spiderman"><div class="info"><h3>Spiderman</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes spiderman',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes spiderman')">Acheter</button></div></div></div>
+<div class="product" data-category="roulettes" data-name="Cartable roulettes team player"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes team player')">♡</div><img src="cartable-roulettes-team-player.jpg" alt="Cartable roulettes team player"><div class="info"><h3>Team Player</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes team player',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes team player')">Acheter</button></div></div></div>
+<div class="product" data-category="roulettes" data-name="Cartable roulettes fille bleue"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes fille bleue')">♡</div><img src="cartable-roulettes-fille-bleue.jpg" alt="Cartable roulettes fille bleue"><div class="info"><h3>Fille Bleue</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes fille bleue',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes fille bleue')">Acheter</button></div></div></div>
+<div class="product" data-category="roulettes nouveaute" data-name="Cartable roulettes stitch"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes stitch')">♡</div><img src="cartable-roulettes-stitch.jpg" alt="Cartable roulettes stitch"><div class="info"><h3>Stitch</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes stitch',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes stitch')">Acheter</button></div></div></div>
+<div class="product" data-category="sac" data-name="Sac lovely rose"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Rose')">♡</div><img src="sac-lovely-rose.jpg" alt="Sac Lovely Rose"><div class="info"><h3>Lovely Rose</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Rose',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Rose')">Acheter</button></div></div></div>
+<div class="product" data-category="sac" data-name="Sac lovely vert"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Vert')">♡</div><img src="sac-lovely-vert.jpg" alt="Sac Lovely Vert"><div class="info"><h3>Lovely Vert</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Vert',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Vert')">Acheter</button></div></div></div>
+<div class="product" data-category="sac" data-name="Sac lovely violet"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Violet')">♡</div><img src="sac-lovely-violet.jpg" alt="Sac Lovely Violet"><div class="info"><h3>Lovely Violet</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Violet',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Violet')">Acheter</button></div></div></div>
+<div class="product" data-category="sac" data-name="Sac lovely bleu"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Bleu')">♡</div><img src="sac-lovely-bleu.jpg" alt="Sac Lovely Bleu"><div class="info"><h3>Lovely Bleu</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Bleu',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Bleu')">Acheter</button></div></div></div>
+<div class="product" data-category="set nouveaute" data-name="Set cartables rose gaming"><div class="fav" onclick="toggleFavorite(this,'Set cartables rose gaming')">♡</div><img src="set-cartables-rose-gaming.jpg" alt="Set cartables rose gaming"><div class="info"><h3>Set Rose / Gaming</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables rose gaming',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables rose gaming')">Acheter</button></div></div></div>
+<div class="product" data-category="set nouveaute" data-name="Set cartables licorne camouflage"><div class="fav" onclick="toggleFavorite(this,'Set cartables licorne camouflage')">♡</div><img src="set-cartables-licorne-camouflage.jpg" alt="Set cartables licorne camouflage"><div class="info"><h3>Set Licorne / Camouflage</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables licorne camouflage',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables licorne camouflage')">Acheter</button></div></div></div>
+</section>
+<section class="features"><div class="feature"><i>🚚</i><h3>Livraison</h3><p>Livraison selon disponibilité.</p></div><div class="feature"><i>💬</i><h3>Commande WhatsApp</h3><p>Commande simple et rapide.</p></div><div class="feature"><i>⭐</i><h3>Sélection premium</h3><p>Produits choisis avec soin.</p></div><div class="feature"><i>📍</i><h3>Casablanca</h3><p>Boutique basée au Maroc.</p></div></section>
+<section class="newsletter why-lurevia">
+  <h2>Pourquoi choisir Lurevia ?</h2>
+  <p>Chaque produit est sélectionné avec soin pour offrir qualité, style et praticité.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎒</div>
+      <h3>Qualité sélectionnée</h3>
+      <p>Des cartables et sacs résistants, pratiques et adaptés à tous les âges.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">🚚</div>
+      <h3>Livraison au Maroc</h3>
+      <p>Nous livrons rapidement partout au Maroc selon votre ville.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">💬</div>
+      <h3>Commande simple</h3>
+      <p>Passez votre commande facilement via WhatsApp en quelques clics.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>Service client</h3>
+      <p>Notre équipe est disponible pour répondre à toutes vos questions.</p>
+    </div>
+  </div>
+</section>
+<footer id="contact"><div class="footer-container"><div><div class="footer-logo">L<span>R</span></div><p class="footer-about">Lurevia sélectionne des cartables, sacs à dos et accessoires scolaires élégants et pratiques pour accompagner chaque rentrée avec style.</p><div class="socials"><a href="https://www.instagram.com/lurevia__/" target="_blank">📷</a><a href="https://www.tiktok.com/@lurevia4" target="_blank">🎵</a><a href="https://wa.me/212694834256" target="_blank">💬</a></div></div><div class="footer-column"><h4>Boutique</h4><a href="#produits">Produits</a><a href="#categories">Catégories</a><a href="#produits">Nouveautés</a></div><div class="footer-column"><h4>Informations</h4><a href="#accueil">À propos</a><a href="#contact">Contact</a><a href="#contact">Livraison</a></div><div class="footer-column"><h4>Contact</h4><a href="tel:+212694834256">📞 0694834256</a><a href="mailto:Lurevia.Eshop@gmail.com">📧 Lurevia.Eshop@gmail.com</a><a>📍 Casablanca</a></div></div><div class="copyright">© 2026 Lurevia. Tous droits réservés.</div></footer>
+<div class="drawer" id="cartDrawer"><span class="drawer-close" onclick="closeDrawer('cartDrawer')">×</span><h2>Mon panier</h2><div id="cartContent" class="empty">Votre panier est vide.</div></div><div class="drawer" id="favDrawer"><span class="drawer-close" onclick="closeDrawer('favDrawer')">×</span><h2>Mes favoris</h2><div id="favContent" class="empty">Aucun favori.</div></div>
+<script>
+let cart = [];
+let favorites = [];
+let toastTimer;
+
+function normalize(text){
+  return String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+}
+
+function showToast(message){
+  let toast = document.getElementById('toast');
+  if(!toast){
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerText = message;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+}
+
+function getProductInfo(name){
+  const wanted = normalize(name);
+  let match = null;
+
+  document.querySelectorAll('.product').forEach(product => {
+    const dataName = normalize(product.dataset.name);
+    const title = normalize(product.querySelector('h3')?.innerText);
+    if(dataName === wanted || title === wanted || dataName.includes(wanted) || wanted.includes(dataName)){
+      match = product;
+    }
+  });
+
+  if(!match){
+    return {name, price:0, img:''};
+  }
+
+  const img = match.querySelector('img')?.getAttribute('src') || '';
+  const title = match.querySelector('h3')?.innerText || name;
+  const priceText = match.querySelector('.price')?.innerText || '0';
+  const price = parseInt(priceText.replace(/[^0-9]/g,'')) || 0;
+
+  return {name:title, price, img};
+}
+
+function openDrawer(id){
+  document.getElementById(id).classList.add('open');
+}
+
+function closeDrawer(id){
+  document.getElementById(id).classList.remove('open');
+}
+
+function addToCart(name, price){
+  const info = getProductInfo(name);
+  const finalName = info.name || name;
+  const finalPrice = price || info.price;
+  const existing = cart.find(item => normalize(item.name) === normalize(finalName));
+
+  if(existing){
+    existing.qty += 1;
+  } else {
+    cart.push({name:finalName, price:finalPrice, qty:1, img:info.img});
+  }
+
+  updateCart();
+  openDrawer('cartDrawer');
+  showToast('Produit ajouté au panier');
+}
+
+function clearCart(){
+  cart = [];
+  updateCart();
+  showToast('Panier vidé');
+}
+
+function removeFromCart(name){
+  cart = cart.filter(item => normalize(item.name) !== normalize(name));
+  updateCart();
+  showToast('Produit supprimé');
+}
+
+function changeQty(name, change){
+  const item = cart.find(item => normalize(item.name) === normalize(name));
+  if(!item) return;
+
+  item.qty += change;
+  if(item.qty <= 0){
+    removeFromCart(name);
+  } else {
+    updateCart();
+  }
+}
+
+function updateCart(){
+  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+  document.getElementById('cartCount').innerText = cartCount;
+  const cartContent = document.getElementById('cartContent');
+
+  if(cart.length === 0){
+    cartContent.className = 'empty';
+    cartContent.innerHTML = 'Votre panier est vide.';
+    return;
+  }
+
+  cartContent.className = '';
+  cartContent.innerHTML = cart.map(item => `
+    <div class="drawer-item product-line">
+      <img class="drawer-img" src="${item.img}" alt="${item.name}" onclick="openPreview('${item.img}','${item.name}')">
+      <div class="drawer-details">
+        <strong>${item.name}</strong>
+        <div class="drawer-price">${item.price} DH × ${item.qty} = ${item.price * item.qty} DH</div>
+        <div class="drawer-actions">
+          <button class="mini-btn" onclick="changeQty('${item.name}', -1)">−</button>
+          <button class="mini-btn" onclick="changeQty('${item.name}', 1)">+</button>
+          <button class="mini-btn remove-btn" onclick="removeFromCart('${item.name}')">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  `).join('') + `
+    <div class="cart-total">Total : ${total} DH</div>
+    <button class="whatsapp-cart" onclick="orderCart()">Commander le panier sur WhatsApp</button>
+    <button class="clear-btn" onclick="clearCart()">Vider le panier</button>
+  `;
+}
+
+function toggleFavorite(btn, name){
+  const info = getProductInfo(name);
+  const finalName = info.name || name;
+
+  if(favorites.some(item => normalize(item.name) === normalize(finalName))){
+    favorites = favorites.filter(item => normalize(item.name) !== normalize(finalName));
+    btn.innerText = '♡';
+    btn.classList.remove('active');
+    showToast('Retiré des favoris');
+  } else {
+    favorites.push({name:finalName, price:info.price, img:info.img});
+    btn.innerText = '❤';
+    btn.classList.add('active');
+    showToast('Ajouté aux favoris');
+  }
+
+  updateFavorites();
+}
+
+function clearFavorites(){
+  favorites = [];
+  document.querySelectorAll('.fav').forEach(btn => {
+    btn.innerText = '♡';
+    btn.classList.remove('active');
+  });
+  updateFavorites();
+  showToast('Favoris vidés');
+}
+
+function removeFavorite(name){
+  favorites = favorites.filter(item => normalize(item.name) !== normalize(name));
+
+  document.querySelectorAll('.product').forEach(product => {
+    const dataName = product.dataset.name;
+    const title = product.querySelector('h3')?.innerText;
+    if(normalize(dataName) === normalize(name) || normalize(title) === normalize(name)){
+      const favBtn = product.querySelector('.fav');
+      if(favBtn){
+        favBtn.innerText = '♡';
+        favBtn.classList.remove('active');
+      }
+    }
+  });
+
+  updateFavorites();
+  showToast('Favori retiré');
+}
+
+function updateFavorites(){
+  document.getElementById('favCount').innerText = favorites.length;
+  const favContent = document.getElementById('favContent');
+
+  if(favorites.length === 0){
+    favContent.className = 'empty';
+    favContent.innerHTML = 'Aucun favori.';
+    return;
+  }
+
+  favContent.className = '';
+  favContent.innerHTML = favorites.map(item => `
+    <div class="drawer-item product-line">
+      <img class="drawer-img" src="${item.img}" alt="${item.name}" onclick="openPreview('${item.img}','${item.name}')">
+      <div class="drawer-details">
+        <strong>${item.name}</strong>
+        <div class="drawer-price">${item.price} DH</div>
+        <div class="drawer-actions">
+          <button class="mini-btn" onclick="addToCart('${item.name}', ${item.price})">Ajouter au panier</button>
+          <button class="mini-btn" onclick="buyNow('${item.name}')">Commander</button>
+          <button class="mini-btn remove-btn" onclick="removeFavorite('${item.name}')">Retirer</button>
+        </div>
+      </div>
+    </div>
+  `).join('') + `
+    <button class="clear-btn" onclick="clearFavorites()">Vider les favoris</button>
+  `;
+}
+
+function buyNow(product){
+  const numero = '212694834256';
+  const text = `Bonjour, je souhaite commander : ${product}`;
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function orderCart(){
+  if(cart.length === 0) return;
+
+  const numero = '212694834256';
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const details = cart.map(item => `- ${item.name} x${item.qty} = ${item.price * item.qty} DH`).join('\n');
+  const text = `Bonjour, je souhaite commander :\n${details}\nTotal : ${total} DH`;
+
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+function searchProducts(){
+  const v = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.product').forEach(p => {
+    p.style.display = p.dataset.name.toLowerCase().includes(v) ? 'block' : 'none';
+  });
+}
+
+function filterProducts(cat, el){
+  document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+
+  document.querySelectorAll('.product').forEach(p => {
+    const cats = p.dataset.category.split(' ');
+    p.style.display = (cat === 'all' || cats.includes(cat)) ? 'block' : 'none';
+  });
+}
+
+function openPreview(img, name){
+  let preview = document.getElementById('preview');
+  if(!preview){
+    preview = document.createElement('div');
+    preview.id = 'preview';
+    preview.className = 'preview';
+    preview.innerHTML = `
+      <div class="preview-card">
+        <span class="preview-close" onclick="closePreview()">×</span>
+        <img id="previewImg" src="" alt="">
+        <h3 id="previewTitle" style="font-family:Georgia,serif;margin-top:14px;font-weight:400"></h3>
+      </div>
+    `;
+    document.body.appendChild(preview);
+    preview.addEventListener('click', e => { if(e.target.id === 'preview') closePreview(); });
+  }
+  document.getElementById('previewImg').src = img;
+  document.getElementById('previewTitle').innerText = name;
+  preview.classList.add('open');
+}
+
+function closePreview(){
+  const preview = document.getElementById('preview');
+  if(preview) preview.classList.remove('open');
+}
+
+// Permet de cliquer sur les photos produits pour les agrandir
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.product img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      const product = img.closest('.product');
+      const name = product.querySelector('h3')?.innerText || product.dataset.name;
+      openPreview(img.getAttribute('src'), name);
+    });
+  });
+});
+</script>
+</body>
+</html>
