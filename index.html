@@ -17,6 +17,26 @@
 <meta name="twitter:description" content="Découvrez notre nouvelle collection.">
 <meta name="twitter:image" content="https://ghali-coder.github.io/Lurevia.Eshop/cartable-roulettes-team-player.jpg">
   <style>
+    .colors{
+  display:flex;
+  gap:9px;
+  margin:12px 0 16px;
+}
+
+.colors button{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:2px solid #fff;
+  box-shadow:0 0 0 1px #ccc;
+  cursor:pointer;
+  padding:0;
+  flex:none;
+}
+
+.colors button:hover{
+  transform:scale(1.15);
+}
     :root{
       --cream:#fbf7f1;--soft:#f2e6d7;--gold:#b9975b;--dark:#111;--white:#fffaf5;--muted:#6f6256;
     }
@@ -156,6 +176,31 @@
 <div class="product" data-category="sac" data-name="Sac lovely bleu"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Bleu')">♡</div><img src="sac-lovely-bleu.jpg" alt="Sac Lovely Bleu"><div class="info"><h3>Lovely Bleu</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Bleu',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Bleu')">Acheter</button></div></div></div>
 <div class="product" data-category="set nouveaute" data-name="Set cartables rose gaming"><div class="fav" onclick="toggleFavorite(this,'Set cartables rose gaming')">♡</div><img src="set-cartables-rose-gaming.jpg" alt="Set cartables rose gaming"><div class="info"><h3>Set Rose / Gaming</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables rose gaming',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables rose gaming')">Acheter</button></div></div></div>
 <div class="product" data-category="set nouveaute" data-name="Set cartables licorne camouflage"><div class="fav" onclick="toggleFavorite(this,'Set cartables licorne camouflage')">♡</div><img src="set-cartables-licorne-camouflage.jpg" alt="Set cartables licorne camouflage"><div class="info"><h3>Set Licorne / Camouflage</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables licorne camouflage',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables licorne camouflage')">Acheter</button></div></div></div>
+<div class="product" data-category="set nouveaute" data-name="Set de 3 valises rigides">
+  <div class="fav" onclick="toggleFavorite(this,'Set de 3 valises rigides')">♡</div>
+
+  <img id="valise-img" src="valise-blanc.jpg" alt="Set de 3 valises rigides">
+
+  <div class="info">
+    <h3>Set de 3 Valises</h3>
+    <p class="meta">Disponible en plusieurs couleurs</p>
+    <p class="price">899 DH</p>
+
+    <div class="colors">
+      <button style="background:#c9cbd1" onclick="changeValiseColor('valise-gris.jpg')"></button>
+      <button style="background:#f5f3ee" onclick="changeValiseColor('valise-blanc.jpg')"></button>
+      <button style="background:#008080" onclick="changeValiseColor('valise-bleu-petrole.jpg')"></button>
+      <button style="background:#c8ab8b" onclick="changeValiseColor('valise-beige.jpg')"></button>
+      <button style="background:#1f3b5c" onclick="changeValiseColor('valise-bleu-marine.jpg')"></button>
+      <button style="background:#9b1f2e" onclick="changeValiseColor('valise-rouge.jpg')"></button>
+      <button style="background:#111" onclick="changeValiseColor('valise-noir.jpg')"></button>
+    </div>
+    <div class="buttons">
+      <button class="cart-btn" onclick="addToCart('Set de 3 valises rigides',899)">Panier</button>
+      <button class="buy-btn" onclick="buyNow('Set de 3 valises rigides')">Acheter</button>
+    </div>
+  </div>
+</div>
 </section>
 <section class="features"><div class="feature"><i>🚚</i><h3>Livraison</h3><p>Livraison selon disponibilité.</p></div><div class="feature"><i>💬</i><h3>Commande WhatsApp</h3><p>Commande simple et rapide.</p></div><div class="feature"><i>⭐</i><h3>Sélection premium</h3><p>Produits choisis avec soin.</p></div><div class="feature"><i>📍</i><h3>Casablanca</h3><p>Boutique basée au Maroc.</p></div></section>
 <section class="newsletter why-lurevia">
@@ -223,7 +268,7 @@ function getProductInfo(name){
     if(dataName === wanted || title === wanted || dataName.includes(wanted) || wanted.includes(dataName)){
       match = product;
     }
-  });
+  }); 
 
   if(!match){
     return {name, price:0, img:''};
@@ -468,6 +513,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+function changeValiseColor(image){
+  document.getElementById('valise-img').src = image;
+}
 </script>
 </body>
 </html>
