@@ -16,7 +16,42 @@
 <meta name="twitter:title" content="Lurevia | Cartables & Sacs scolaires">
 <meta name="twitter:description" content="Découvrez notre nouvelle collection.">
 <meta name="twitter:image" content="https://ghali-coder.github.io/Lurevia.Eshop/cartable-roulettes-team-player.jpg">
-  <style>
+
+ 
+<style>
+  .variant-title{
+       font-size:13px;
+    margin:12px 0 8px;
+    font-weight:bold;
+}
+
+.hr-models{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-bottom:10px;
+}
+
+.hr-models button{
+    padding:9px 7px;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.hr-models button:hover{
+    background:#b9975b;
+    color:#fff;
+    border-color:#b9975b;
+}
+
+.selected-model{
+    font-size:12px;
+    color:#6f6256;
+    margin-bottom:12px;
+}
     .colors{
   display:flex;
   gap:9px;
@@ -170,12 +205,113 @@
 <div class="product" data-category="roulettes" data-name="Cartable roulettes team player"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes team player')">♡</div><img src="cartable-roulettes-team-player.jpg" alt="Cartable roulettes team player"><div class="info"><h3>Team Player</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes team player',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes team player')">Acheter</button></div></div></div>
 <div class="product" data-category="roulettes" data-name="Cartable roulettes fille bleue"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes fille bleue')">♡</div><img src="cartable-roulettes-fille-bleue.jpg" alt="Cartable roulettes fille bleue"><div class="info"><h3>Fille Bleue</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes fille bleue',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes fille bleue')">Acheter</button></div></div></div>
 <div class="product" data-category="roulettes nouveaute" data-name="Cartable roulettes stitch"><div class="fav" onclick="toggleFavorite(this,'Cartable roulettes stitch')">♡</div><img src="cartable-roulettes-stitch.jpg" alt="Cartable roulettes stitch"><div class="info"><h3>Stitch</h3><p class="meta">Cartable à roulettes</p><p class="price">299 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Cartable roulettes stitch',299)">Panier</button><button class="buy-btn" onclick="buyNow('Cartable roulettes stitch')">Acheter</button></div></div></div>
-<div class="product" data-category="sac" data-name="Sac lovely rose"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Rose')">♡</div><img src="sac-lovely-rose.jpg" alt="Sac Lovely Rose"><div class="info"><h3>Lovely Rose</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Rose',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Rose')">Acheter</button></div></div></div>
-<div class="product" data-category="sac" data-name="Sac lovely vert"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Vert')">♡</div><img src="sac-lovely-vert.jpg" alt="Sac Lovely Vert"><div class="info"><h3>Lovely Vert</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Vert',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Vert')">Acheter</button></div></div></div>
-<div class="product" data-category="sac" data-name="Sac lovely violet"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Violet')">♡</div><img src="sac-lovely-violet.jpg" alt="Sac Lovely Violet"><div class="info"><h3>Lovely Violet</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Violet',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Violet')">Acheter</button></div></div></div>
-<div class="product" data-category="sac" data-name="Sac lovely bleu"><div class="fav" onclick="toggleFavorite(this,'Sac Lovely Bleu')">♡</div><img src="sac-lovely-bleu.jpg" alt="Sac Lovely Bleu"><div class="info"><h3>Lovely Bleu</h3><p class="meta">Sac à dos</p><p class="price">199 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Sac Lovely Bleu',199)">Panier</button><button class="buy-btn" onclick="buyNow('Sac Lovely Bleu')">Acheter</button></div></div></div>
-<div class="product" data-category="set nouveaute" data-name="Set cartables rose gaming"><div class="fav" onclick="toggleFavorite(this,'Set cartables rose gaming')">♡</div><img src="set-cartables-rose-gaming.jpg" alt="Set cartables rose gaming"><div class="info"><h3>Set Rose / Gaming</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables rose gaming',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables rose gaming')">Acheter</button></div></div></div>
-<div class="product" data-category="set nouveaute" data-name="Set cartables licorne camouflage"><div class="fav" onclick="toggleFavorite(this,'Set cartables licorne camouflage')">♡</div><img src="set-cartables-licorne-camouflage.jpg" alt="Set cartables licorne camouflage"><div class="info"><h3>Set Licorne / Camouflage</h3><p class="meta">Ensemble cartable</p><p class="price">349 DH</p><div class="buttons"><button class="cart-btn" onclick="addToCart('Set cartables licorne camouflage',349)">Panier</button><button class="buy-btn" onclick="buyNow('Set cartables licorne camouflage')">Acheter</button></div></div></div>
+<div class="product" data-category="sac" data-name="Sac Lovely">
+
+    <div class="fav" onclick="toggleFavorite(this,'Sac Lovely')">♡</div>
+
+    <img id="lovely-img" src="sac-lovely-rose.jpg" alt="Sac Lovely">
+
+    <div class="info">
+
+        <h3>Sac Lovely</h3>
+
+        <p class="meta">Disponible en plusieurs couleurs</p>
+
+        <p class="price">199 DH</p>
+
+        <div class="colors">
+
+            <button style="background:#E7A39A"
+                onclick="changeLovelyColor('sac-lovely-rose.jpg')"></button>
+
+            <button style="background:#7EC8E3"
+                onclick="changeLovelyColor('sac-lovely-bleu.jpg')"></button>
+
+            <button style="background:#8C6AD6"
+                onclick="changeLovelyColor('sac-lovely-violet.jpg')"></button>
+
+            <button style="background:#6BA86E"
+                onclick="changeLovelyColor('sac-lovely-vert.jpg')"></button>
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="cart-btn"
+                onclick="addToCart('Sac Lovely',199)">
+                Panier
+            </button>
+
+            <button class="buy-btn"
+                onclick="buyNow('Sac Lovely')">
+                Acheter
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="product" data-category="nouveaute" data-name="Cartable HR">
+
+    <div class="fav" onclick="toggleFavorite(this,'Cartable HR')">♡</div>
+
+    <img id="hr-img"
+         src="cartables-roseHR.jpg"
+         alt="Cartable HR">
+
+    <div class="info">
+
+        <h3>Cartable HR</h3>
+
+        <p class="meta">Disponible en 4 modèles</p>
+
+        <p class="price">349 DH</p>
+
+        <p class="variant-title">Choisir un modèle :</p>
+
+        <div class="hr-models">
+
+            <button type="button"
+                    onclick="changeHRModel('cartables-roseHR.jpg','Rose')">
+                🌸 Rose
+            </button>
+
+            <button type="button"
+                    onclick="changeHRModel('cartables-gamingHR.jpg','Gaming')">
+                🎮 Gaming
+            </button>
+
+            <button type="button"
+                    onclick="changeHRModel('cartables-licorneHR.jpg','Licorne')">
+                🦄 Licorne
+            </button>
+
+            <button type="button"
+                    onclick="changeHRModel('cartables-camouflageHR.jpg','Camouflage')">
+                🪖 Camouflage
+            </button>
+
+        </div>
+
+      
+
+        <div class="buttons">
+
+            <button class="cart-btn"
+                    onclick="addHRToCart()">
+                Panier
+            </button>
+
+            <button class="buy-btn"
+                    onclick="buyHRNow()">
+                Acheter
+            </button>
+
+        </div>
+
+    </div>
+</div>
 <div class="product" data-category="set nouveaute" data-name="Set de 3 valises rigides">
   <div class="fav" onclick="toggleFavorite(this,'Set de 3 valises rigides')">♡</div>
 
@@ -188,7 +324,7 @@
 
     <div class="colors">
       <button style="background:#c9cbd1" onclick="changeValiseColor('valise-gris.jpg')"></button>
-      <button style="background:#E7A39A" onclick="changeValiseColor('valise-saumon.jpg')"></button>
+      <button style="background:#E7A39A" onclick="changeValiseColor('valise-rose.jpg')"></button>
       <button style="background:#008080" onclick="changeValiseColor('valise-bleu-petrole.jpg')"></button>
       <button style="background:#c8ab8b" onclick="changeValiseColor('valise-beige.jpg')"></button>
       <button style="background:#1f3b5c" onclick="changeValiseColor('valise-bleu-marine.jpg')"></button>
@@ -236,6 +372,9 @@
 <footer id="contact"><div class="footer-container"><div><div class="footer-logo">L<span>R</span></div><p class="footer-about">Lurevia sélectionne des cartables, sacs à dos et accessoires scolaires élégants et pratiques pour accompagner chaque rentrée avec style.</p><div class="socials"><a href="https://www.instagram.com/lurevia__/" target="_blank">📷</a><a href="https://www.tiktok.com/@lurevia4" target="_blank">🎵</a><a href="https://wa.me/212694834256" target="_blank">💬</a></div></div><div class="footer-column"><h4>Boutique</h4><a href="#produits">Produits</a><a href="#categories">Catégories</a><a href="#produits">Nouveautés</a></div><div class="footer-column"><h4>Informations</h4><a href="#accueil">À propos</a><a href="#contact">Contact</a><a href="#contact">Livraison</a></div><div class="footer-column"><h4>Contact</h4><a href="tel:+212694834256">📞 0694834256</a><a href="mailto:Lurevia.Eshop@gmail.com">📧 Lurevia.Eshop@gmail.com</a><a>📍 Casablanca</a></div></div><div class="copyright">© 2026 Lurevia. Tous droits réservés.</div></footer>
 <div class="drawer" id="cartDrawer"><span class="drawer-close" onclick="closeDrawer('cartDrawer')">×</span><h2>Mon panier</h2><div id="cartContent" class="empty">Votre panier est vide.</div></div><div class="drawer" id="favDrawer"><span class="drawer-close" onclick="closeDrawer('favDrawer')">×</span><h2>Mes favoris</h2><div id="favContent" class="empty">Aucun favori.</div></div>
 <script>
+  function changeLovelyColor(image){
+    document.getElementById("lovely-img").src = image;
+}
 let cart = [];
 let favorites = [];
 let toastTimer;
@@ -515,6 +654,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 function changeValiseColor(image){
   document.getElementById('valise-img').src = image;
+}
+let selectedHRModel = "Rose";
+
+function changeHRModel(image, model){
+    const hrImage = document.getElementById("hr-img");
+    const selectedText = document.getElementById("hr-selected");
+
+    hrImage.src = image;
+    selectedHRModel = model;
+    selectedText.innerText = "Modèle choisi : " + model;
+}
+
+function addHRToCart(){
+    addToCart("Cartable HR - " + selectedHRModel, 349);
+}
+
+function buyHRNow(){
+    buyNow("Cartable HR - " + selectedHRModel);
 }
 </script>
 </body>
