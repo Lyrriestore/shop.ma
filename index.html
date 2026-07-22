@@ -603,9 +603,9 @@ function updateFavorites(){
   `;
 }
 
-function buyNow(product){
+function buyNow(product) {
   const numero = '212784615533';
-  const text = `Bonjour, je souhaite commander : ${product}`;
+  const text = `Bonjour, je souhaite commander : ${product}`; 
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
